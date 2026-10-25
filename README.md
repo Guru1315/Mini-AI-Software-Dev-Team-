@@ -52,7 +52,7 @@ Each agent node has its own model setting, so you can mix local and cloud models
    ```bash
    ollama pull qwen2.5-coder:1.5b
    ```
-4. In Flowise go to **Agentflows -> Add New -> settings gear -> Load Agentflow** and import `flow/software-dev-team.json`.
+4. In Flowise go to **Agentflows -> Add New -> settings gear -> Load Agentflow** and import `flow/software-dev-team.json` (add your exported flow to `flow/` first; see [`flow/README.md`](flow/README.md)).
 5. For Ollama nodes set Base URL to `http://host.docker.internal:11434` (because Flowise runs in Docker).
 6. If you use Gemini, add your own key under **Credentials** and select it in the nodes. Never commit keys.
 7. Open the chat and try:
@@ -60,11 +60,22 @@ Each agent node has its own model setting, so you can mix local and cloud models
    Build a CLI to-do app in Python with add, list, and delete.
    ```
 
-The prompts for each agent are in [`prompts/`](prompts/) if you want to read or rebuild the flow by hand.
+The prompts for each agent are in [`Prompts/`](Prompts/) if you want to read or rebuild the flow by hand.
+
+## Repository structure
+
+| Folder | Contents |
+|---|---|
+| [`flow/`](flow/) | Where the exported Agentflow JSON goes (`software-dev-team.json`) |
+| [`Prompts/`](Prompts/) | The prompt for each node, plus the Round Counter function |
+| [`System Architecture/`](System%20Architecture/) | Screenshot of the flow on the Flowise canvas |
+| [`Crew Workflows/`](Crew%20Workflows/) | Screenshot of the Process Flow trace from a real run |
+| [`Outputs/`](Outputs/) | Screenshots of node details and the final Flow State |
+| [`example/`](example/) | Written sample of the final output |
 
 ## Example
 
-See [`examples/todo-app-output.md`](examples/todo-app-output.md) for a sample run (replace with your own output).
+See [`example/todo-app-output.md`](example/todo-app-output.md) for a sample run (replace with your own output).
 
 ## Limitations and lessons learned
 
